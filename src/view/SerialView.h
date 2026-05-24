@@ -3,4 +3,4 @@
 class SerialView{
     public:
         void showWeight(float weight);   
-}
+};

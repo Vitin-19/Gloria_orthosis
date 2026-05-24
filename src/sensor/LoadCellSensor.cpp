@@ -6,8 +6,8 @@ void LoadCellSensor::begin(){
     loadCell.set_scale(scale);
 
     loadCell.tare();
-}
+};
 
 float LoadCellSensor::readWeight(){
     return loadCell.get_units(10);
-}
+};

@@ -1,6 +1,6 @@
 #pragma once
 
-class LoadCell{
+class LoadCellModel{
 private:
     float weight = 0;
 

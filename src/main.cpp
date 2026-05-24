@@ -1,18 +1,17 @@
 #include <Arduino.h>
+#include "./controller/LoadCellController.h"
 
-// put function declarations here:
-int myFunction(int, int);
+LoadCellController lcController;
+
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
-}
+    Serial.begin(115200);
+
+    lcController.begin();
+};
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+   lcController.update();
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
+   delay(3000);
+};
