@@ -15,5 +15,5 @@ class LoadCellController{
     public:
         void begin();
 
-        void update();
+        float getWeight();
 };

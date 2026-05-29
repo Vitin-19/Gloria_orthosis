@@ -4,10 +4,12 @@ void LoadCellController::begin(){
     sensor.begin();
 }
 
-void LoadCellController::update(){
+float LoadCellController::getWeight(){
     float weight = sensor.readWeight();
 
     model.setWeight(weight);
 
     view.showWeight(model.getWeight());
+
+    return model.getWeight();
 };

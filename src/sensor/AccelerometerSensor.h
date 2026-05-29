@@ -7,7 +7,7 @@ class AccelerometerSensor {
 
     public:
         void initialize();
-        int16_t readAz();
+        float readAz();
         bool testConnection();
         float convertAcceleration(int16_t a);
 };

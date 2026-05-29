@@ -11,7 +11,7 @@ float AccelerometerSensor::convertAcceleration(int16_t a){
     return a / 16384.0;
 };
 
-int16_t AccelerometerSensor::readAz(){
+float AccelerometerSensor::readAz(){
     return convertAcceleration(accelerometer.getAccelerationZ());
 };
 
