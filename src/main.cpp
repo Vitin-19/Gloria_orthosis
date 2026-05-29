@@ -23,7 +23,7 @@ void setup() {
 };
 
 void loop() {
-    delay(50);
+    delay(15);
 
     az = aController.getAz();
     weight = lcController.getWeight();
@@ -32,7 +32,7 @@ void loop() {
         jController.getFood();
     }
     
-    if (az > 0.85 && weight > 1) {
+    if (az > 0.85 && weight > 5) {
         jController.eat();
     }    
 };

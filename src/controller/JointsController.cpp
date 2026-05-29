@@ -29,40 +29,38 @@ void JointsController::initialize(){
 }
 
 void JointsController::getFood(){
-    bool condition1 = joint1.getAngle() == 90 && joint2.getAngle() == 45 && joint3.getAngle() == 0;
-
     if(joint1.getAngle() < 90){
-        for (int i = joint1.getAngle(); i < 90; i++){
+        for (int i = joint1.getAngle(); i <= 90; i++){
             joint1.setAngle(i);
             delay(15);
         }
     }else if(joint1.getAngle() > 90){
-        for (int i = joint1.getAngle(); i > 90; i--){
+        for (int i = joint1.getAngle(); i >= 90; i--){
             joint1.setAngle(i);
             delay(15);
         }
     }
 
     if(joint2.getAngle() < 45){
-        for (int i = joint2.getAngle(); i < 45; i++){
+        for (int i = joint2.getAngle(); i <= 45; i++){
             joint2.setAngle(i);
             delay(15);
         }
     }else if(joint2.getAngle() > 45){
-        for (int i = joint2.getAngle(); i > 45; i--){
+        for (int i = joint2.getAngle(); i >= 45; i--){
             joint2.setAngle(i);
             delay(15);
         }
     }
 
-    if(joint1.getAngle() < 0){
-        for (int i = joint1.getAngle(); i < 0; i++){
-            joint1.setAngle(i);
+    if(joint3.getAngle() < 0){
+        for (int i = joint3.getAngle(); i <= 0; i++){
+            joint3.setAngle(i);
             delay(15);
         }
-    }else if(joint1.getAngle() > 0){
-        for (int i = joint1.getAngle(); i > 0; i--){
-            joint1.setAngle(i);
+    }else if(joint3.getAngle() > 0){
+        for (int i = joint3.getAngle(); i >= 0; i--){
+            joint3.setAngle(i);
             delay(15);
         }
     }
@@ -70,37 +68,37 @@ void JointsController::getFood(){
 
 void JointsController::eat(){
     if(joint1.getAngle() < 135){
-        for (int i = joint1.getAngle(); i < 135; i++){
+        for (int i = joint1.getAngle(); i <= 135; i++){
             joint1.setAngle(i);
             delay(15);
         }
     }else if(joint1.getAngle() > 135){
-        for (int i = joint1.getAngle(); i > 135; i--){
+        for (int i = joint1.getAngle(); i >= 135; i--){
             joint1.setAngle(i);
             delay(15);
         }
     }
 
     if(joint2.getAngle() < 0){
-        for (int i = joint2.getAngle(); i < 0; i++){
+        for (int i = joint2.getAngle(); i <= 0; i++){
             joint2.setAngle(i);
             delay(15);
         }
     }else if(joint2.getAngle() > 0){
-        for (int i = joint2.getAngle(); i > 0; i--){
+        for (int i = joint2.getAngle(); i >= 0; i--){
             joint2.setAngle(i);
             delay(15);
         }
     }
 
-    if(joint1.getAngle() < 30){
-        for (int i = joint1.getAngle(); i < 30; i++){
-            joint1.setAngle(i);
+    if(joint3.getAngle() < 30){
+        for (int i = joint3.getAngle(); i <= 30; i++){
+            joint3.setAngle(i);
             delay(15);
         }
-    }else if(joint1.getAngle() > 30){
-        for (int i = joint1.getAngle(); i > 30; i--){
-            joint1.setAngle(i);
+    }else if(joint3.getAngle() > 30){
+        for (int i = joint3.getAngle(); i >= 30; i--){
+            joint3.setAngle(i);
             delay(15);
         }
     }

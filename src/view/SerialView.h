@@ -1,13 +1,9 @@
 #pragma once
 
-#include "../sensor/AccelerometerSensor.h"
 
 class SerialView{
-    private:
-        AccelerometerSensor as;
-
     public:
         void showWeight(float weight);
-        void isAccelerometerConnected();
+        void showAccelerometerConnection(bool connected);
         void showAz(float az);   
 };

@@ -9,8 +9,6 @@ class LoadCellController{
         LoadCellModel model;
         LoadCellSensor sensor;
         SerialView view;
-
-        static constexpr float FOOD_LIMIT = 20.0;
     
     public:
         void begin();

@@ -7,8 +7,8 @@ void SerialView::showWeight(float weight){
     Serial.println("g");
 };
 
-void SerialView::isAccelerometerConnected(){
-    if(as.testConnection()){
+void SerialView::showAccelerometerConnection(bool connected){
+    if(connected){
         Serial.println("Accelerometer connected successfully");
     }else{
         Serial.println("Failed in connecting accelerometer");

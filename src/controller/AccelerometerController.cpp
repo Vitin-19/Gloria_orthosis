@@ -2,7 +2,8 @@
 
 void AccelerometerController::begin(){
     sensor.initialize();
-    view.isAccelerometerConnected();
+
+    view.showAccelerometerConnection(sensor.testConnection());
 };
 
 float AccelerometerController::getAz(){
