@@ -1,4 +1,5 @@
 #include "LoadCellSensor.h"
+#include <cmath>
 
 void LoadCellSensor::begin(){
     loadCell.begin(DT, SCK);
@@ -9,5 +10,5 @@ void LoadCellSensor::begin(){
 };
 
 float LoadCellSensor::readWeight(){
-    return loadCell.get_units(10);
+    return abs(loadCell.get_units(10));
 };

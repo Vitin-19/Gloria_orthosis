@@ -12,30 +12,30 @@ void JointsController::begin(){
 }
 
 void JointsController::initialize(){
-    for (int i = joint1.getAngle(); i > 0; i--){
+    for (int i = joint1.getAngle(); i >= 0; i--){
         joint1.setAngle(i);
         delay(15);
     }
 
-    for (int i = joint2.getAngle(); i > 0; i--){
+    for (int i = joint2.getAngle(); i >= 0; i--){
         joint2.setAngle(i);
         delay(15);
     }
 
-    for (int i = joint3.getAngle(); i > 0; i--){
+    for (int i = joint3.getAngle(); i >= 0; i--){
         joint3.setAngle(i);
         delay(15);
     }    
 }
 
 void JointsController::getFood(){
-    if(joint1.getAngle() < 90){
-        for (int i = joint1.getAngle(); i <= 90; i++){
+    if(joint1.getAngle() < 45){
+        for (int i = joint1.getAngle(); i <= 45; i++){
             joint1.setAngle(i);
             delay(15);
         }
-    }else if(joint1.getAngle() > 90){
-        for (int i = joint1.getAngle(); i >= 90; i--){
+    }else if(joint1.getAngle() > 45){
+        for (int i = joint1.getAngle(); i >= 45; i--){
             joint1.setAngle(i);
             delay(15);
         }
