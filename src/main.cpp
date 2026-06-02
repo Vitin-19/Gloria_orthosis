@@ -8,7 +8,10 @@ JointsController jController;
 AccelerometerController aController;
 
 float az;
+float lastAz = 0.0;
+
 float weight;
+
 bool gettingFood = false;
 bool eating = false;
 bool lastGettingFood = false;
@@ -27,17 +30,17 @@ void setup() {
 };
 
 void loop() {
-    delay(15);
+    // delay(15);
 
-    az = aController.getAz();
+    az = aController.getAz() - lastAz;
     weight = lcController.getWeight();
 
-    if (az < 0.7 && weight < 1) {
+    if (az < -0.25 && weight < 1) {
         gettingFood = true;
         eating = false;
     }
 
-    if (az > 0.85 && weight > 5) {
+    if (az > 0.2 && weight > 5) {
         gettingFood = false;
         eating = true;
     }
@@ -52,4 +55,6 @@ void loop() {
 
     lastGettingFood = gettingFood;
     lastEating = eating;
+
+    lastAz = az;
 }
