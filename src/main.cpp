@@ -2,20 +2,19 @@
 #include "./controller/LoadCellController.h"
 #include "./controller/JointsController.h"
 #include "./controller/AccelerometerController.h"
+#include "./model/OrthosisStates.h"
 
 LoadCellController lcController;
 JointsController jController;
 AccelerometerController aController;
 
-float az;
-float lastAz = 0.0;
+float baseline;
+float movement;
 
 float weight;
 
-bool gettingFood = false;
-bool eating = false;
-bool lastGettingFood = false;
-bool lastEating = false;
+OrthosisStates state = OrthosisStates::IDLE;
+OrthosisStates lastState = OrthosisStates::IDLE;
 
 void setup() {
     Serial.begin(115200);
@@ -26,35 +25,32 @@ void setup() {
     lcController.begin();
 
     aController.begin();
-    
+
+    baseline = aController.getBaseline();
+  
 };
 
 void loop() {
-    // delay(15);
+    delay(20);
 
-    az = aController.getAz() - lastAz;
+    movement = aController.getAz() - baseline;
     weight = lcController.getWeight();
 
-    if (az < -0.25 && weight < 1) {
-        gettingFood = true;
-        eating = false;
+    if (movement > 0.01 && weight < 1.0) {
+        state = OrthosisStates::GETTINGFOOD;
+    }else if (movement < -0.01 && weight > 5.0) {
+        state = OrthosisStates::EATING;
     }
 
-    if (az > 0.2 && weight > 5) {
-        gettingFood = false;
-        eating = true;
+    if (state != lastState) {
+        if (state == OrthosisStates::GETTINGFOOD) {
+            jController.getFood();
+        }
+
+        if (state == OrthosisStates::EATING) {
+            jController.eat();
+        }
+
+        lastState = state;
     }
-
-    if (gettingFood && !lastGettingFood) {
-        jController.getFood();
-    }
-
-    if (eating && !lastEating) {
-        jController.eat();
-    }
-
-    lastGettingFood = gettingFood;
-    lastEating = eating;
-
-    lastAz = az;
 }

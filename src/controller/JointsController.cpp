@@ -41,6 +41,8 @@ void JointsController::getFood(){
         }
     }
 
+    delay(30);
+
     if(joint2.getAngle() < 45){
         for (int i = joint2.getAngle(); i <= 45; i++){
             joint2.setAngle(i);

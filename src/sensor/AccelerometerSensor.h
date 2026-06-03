@@ -10,4 +10,5 @@ class AccelerometerSensor {
         float readAz();
         bool testConnection();
         float convertAcceleration(int16_t a);
+        float calibrateSensor();
 };

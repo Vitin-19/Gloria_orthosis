@@ -18,3 +18,14 @@ float AccelerometerSensor::readAz(){
 bool AccelerometerSensor::testConnection(){
     return accelerometer.testConnection();
 };
+
+float AccelerometerSensor::calibrateSensor(){
+    float sum = 0.0;
+
+    for (int i = 0; i < 100; i++) {
+        sum += readAz();
+        delay(10);
+    }
+
+    return sum / 100;
+};
