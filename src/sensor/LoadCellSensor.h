@@ -10,6 +10,7 @@ private:
     static constexpr int SCK = 5;
 
     static constexpr float scale = 420.5;
+    static constexpr float averageFood = 15.0;
 public:
     void begin();
     

@@ -3,6 +3,7 @@
 #include "./controller/JointsController.h"
 #include "./controller/AccelerometerController.h"
 #include "./model/OrthosisStates.h"
+#include "./view/SerialView.h"
 
 LoadCellController lcController;
 JointsController jController;
@@ -18,6 +19,7 @@ OrthosisStates lastState = OrthosisStates::IDLE;
 
 void setup() {
     Serial.begin(115200);
+    SerialView::beginWebSerial();
 
     jController.begin();
     jController.initialize();
@@ -31,23 +33,24 @@ void setup() {
 };
 
 void loop() {
-    delay(20);
+    delay(15);
 
     movement = aController.getAz() - baseline;
     weight = lcController.getWeight();
 
-    if (movement > 0.01 && weight < 1.0) {
+    if (state == OrthosisStates::IDLE && movement > 0.01) {
         state = OrthosisStates::GETTINGFOOD;
-    }else if (movement < -0.01 && weight > 5.0) {
+    }else if (state == OrthosisStates::GETTINGFOOD && weight > 1.0) {
         state = OrthosisStates::EATING;
+    }else if (state == OrthosisStates::EATING){
+        delay(1500);
+        state = OrthosisStates::GETTINGFOOD;
     }
 
-    if (state != lastState) {
+    if (lastState != state) {
         if (state == OrthosisStates::GETTINGFOOD) {
-            jController.getFood();
-        }
-
-        if (state == OrthosisStates::EATING) {
+            jController.getFood();       
+        }else if (state == OrthosisStates::EATING) {
             jController.eat();
         }
 

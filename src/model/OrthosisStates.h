@@ -3,5 +3,6 @@
 enum class OrthosisStates{
     IDLE,
     GETTINGFOOD,
-    EATING
+    EATING,
+    RETURNING,
 };

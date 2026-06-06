@@ -10,5 +10,5 @@ void LoadCellSensor::begin(){
 };
 
 float LoadCellSensor::readWeight(){
-    return abs(loadCell.get_units(10));
+    return abs(loadCell.get_units(10)) - averageFood;
 };
