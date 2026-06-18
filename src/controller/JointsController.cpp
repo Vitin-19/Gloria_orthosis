@@ -69,13 +69,13 @@ void JointsController::getFood(){
 }
 
 void JointsController::eat(){
-    if(joint1.getAngle() < 95){
-        for (int i = joint1.getAngle(); i <= 95; i++){
+    if(joint1.getAngle() < 85){
+        for (int i = joint1.getAngle(); i <= 85; i++){
             joint1.setAngle(i);
             delay(15);
         }
-    }else if(joint1.getAngle() > 95){
-        for (int i = joint1.getAngle(); i >= 95; i--){
+    }else if(joint1.getAngle() > 85){
+        for (int i = joint1.getAngle(); i >= 85; i--){
             joint1.setAngle(i);
             delay(15);
         }
@@ -93,13 +93,13 @@ void JointsController::eat(){
         }
     }
 
-    if(joint3.getAngle() < 50){
-        for (int i = joint3.getAngle(); i <= 50; i++){
+    if(joint3.getAngle() < 35){
+        for (int i = joint3.getAngle(); i <= 35; i++){
             joint3.setAngle(i);
             delay(15);
         }
-    }else if(joint3.getAngle() > 50){
-        for (int i = joint3.getAngle(); i >= 50; i--){
+    }else if(joint3.getAngle() > 35){
+        for (int i = joint3.getAngle(); i >= 35; i--){
             joint3.setAngle(i);
             delay(15);
         }

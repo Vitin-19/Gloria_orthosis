@@ -51,7 +51,7 @@ void loop() {
         if (state == OrthosisStates::GETTINGFOOD) {
             jController.getFood();       
         }else if (state == OrthosisStates::EATING) {
-            delay(3000);
+            delay(1500);
             jController.eat();
         }
 
