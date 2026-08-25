@@ -19,7 +19,7 @@ OrthosisStates lastState = OrthosisStates::IDLE;
 
 void setup() {
     Serial.begin(115200);
-    SerialView::beginWebSerial();
+    SerialView::beginSerial();
 
     jController.begin();
     jController.initialize();

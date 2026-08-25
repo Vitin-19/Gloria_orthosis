@@ -3,10 +3,7 @@
 
 class SerialView{
     public:
-        static void beginWebSerial(
-            const char* ssid = "Gloria-Orthosis",
-            const char* password = "gloria123"
-        );
+        static void beginSerial();
 
         void showWeight(float weight);
         void showAccelerometerConnection(bool connected);
