@@ -4,10 +4,12 @@
 #include "./controller/AccelerometerController.h"
 #include "./model/OrthosisStates.h"
 #include "./view/SerialView.h"
+#include "./controller/ConfigController.h"
 
 LoadCellController lcController;
 JointsController jController;
 AccelerometerController aController;
+ConfigController configController;
 
 float baseline;
 float movement;
@@ -29,6 +31,9 @@ void setup() {
     aController.begin();
 
     baseline = aController.getBaseline();
+
+    configController.begin();
+    configController.config();
   
 };
 
