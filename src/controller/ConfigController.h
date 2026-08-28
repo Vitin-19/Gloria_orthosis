@@ -16,9 +16,12 @@ public:
 
     void saveWifiConfig(const String& ssid, const String& password);
     void saveMQTTConfig(const String& host, int port, const String& username, const String& password);
-    void config();
 
     bool hasWifiConfig();
+
+    bool connectWifi();
+    bool connectMQTT();
+    bool connect();
 }
 
 #endif
